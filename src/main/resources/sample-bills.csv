@@ -1,0 +1,17 @@
+date,type,amount,category,description
+2024-01-05,INCOME,15000.00,Salary,January salary
+2024-01-08,EXPENSE,3200.00,Rent,January rent
+2024-01-12,EXPENSE,450.50,Food,Grocery shopping
+2024-01-15,EXPENSE,89.00,Transport,Monthly transit pass
+2024-01-20,EXPENSE,299.00,Entertainment,Netflix and streaming
+2024-01-25,EXPENSE,5800.00,Shopping,Winter jacket - anomaly candidate
+2024-02-05,INCOME,15000.00,Salary,February salary
+2024-02-10,EXPENSE,3200.00,Rent,February rent
+2024-02-14,EXPENSE,380.00,Food,Grocery shopping
+2024-02-18,EXPENSE,120.00,Transport,Taxi rides
+2024-02-22,EXPENSE,650.00,Medical,Dental checkup
+2024-03-05,INCOME,15000.00,Salary,March salary
+2024-03-08,EXPENSE,3200.00,Rent,March rent
+2024-03-15,EXPENSE,520.00,Food,Grocery and dining out
+2024-03-20,EXPENSE,45.00,Transport,Bus card top-up
+2024-03-28,INCOME,2500.00,Freelance,Side project payment

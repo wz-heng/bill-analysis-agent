@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: bill-analysis-agent
+  ai:
+    deepseek:
+      api-key: ${DEEPSEEK_API_KEY:your-deepseek-api-key-here}
+      chat:
+        options:
+          model: deepseek-chat
+          temperature: 0.3
+          max-tokens: 4096
+
+server:
+  port: 8080
+
+logging:
+  level:
+    com.billanalysis: DEBUG
+    org.springframework.ai: INFO

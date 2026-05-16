@@ -304,6 +304,9 @@ function formatAnswer(text) {
   --txt-d:  #504840;
   --txt-dd: #3a3228;
   --grn:    #5a9a6a;
+  --gold-dark: #8a6810;
+  --btn-txt:   #1a1200;
+  --err-rgb:   154, 80, 80;
 
   min-height: 100vh;
   background: var(--bg);
@@ -437,7 +440,7 @@ function formatAnswer(text) {
   color: var(--gold);
   letter-spacing: 0.06em;
 }
-.err-n { color: #a06060; }
+.err-n { color: rgba(var(--err-rgb), 0.75); }
 .card-acts {
   display: flex;
   gap: 6px;
@@ -593,8 +596,8 @@ function formatAnswer(text) {
   padding: 11px 24px;
   border-radius: 7px;
   border: none;
-  background: linear-gradient(135deg, #c9a028 0%, #8a6810 100%);
-  color: #1a1200;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+  color: var(--btn-txt);
   font-family: 'DM Sans', sans-serif;
   font-size: 12px;
   font-weight: 600;
@@ -624,7 +627,7 @@ function formatAnswer(text) {
   width: 13px;
   height: 13px;
   border: 2px solid rgba(26, 18, 0, 0.3);
-  border-top-color: #1a1200;
+  border-top-color: var(--btn-txt);
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
   flex-shrink: 0;
@@ -652,14 +655,14 @@ function formatAnswer(text) {
 
 /* ── Error ───────────────────────────────────────── */
 .card--err {
-  border-color: rgba(154, 80, 80, 0.35);
+  border-color: rgba(var(--err-rgb), 0.35);
 }
 .err-body { padding: 16px; }
 .err-msg {
   font-size: 12px;
-  color: #c08080;
-  background: rgba(154, 80, 80, 0.1);
-  border: 1px solid rgba(154, 80, 80, 0.2);
+  color: rgba(var(--err-rgb), 0.78);
+  background: rgba(var(--err-rgb), 0.1);
+  border: 1px solid rgba(var(--err-rgb), 0.2);
   border-radius: 7px;
   padding: 11px 14px;
   line-height: 1.6;

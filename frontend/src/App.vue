@@ -277,7 +277,7 @@ function formatAnswer(text) {
     .replace(/>/g, '&gt;')
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
     .replace(/\*(.+?)\*/g, '<em>$1</em>')
-    .replace(/^#{1,3}\s+(.+)$/gm, '<p class="font-semibold text-slate-700 mt-4 mb-1">$1</p>')
+    .replace(/^#{1,3}\s+(.+)$/gm, '<h4>$1</h4>')
     .replace(/^[-•]\s+(.+)$/gm, '<li>$1</li>')
     .replace(/(<li>.*<\/li>\n?)+/gs, '<ul>$&</ul>')
     .replace(/\n\n+/g, '</p><p>')

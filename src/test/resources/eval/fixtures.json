@@ -1,0 +1,82 @@
+[
+  {
+    "id": "q01-total-income",
+    "csvFile": "main.csv",
+    "question": "总收入是多少？",
+    "expectedNumbers": [47500],
+    "expectedTools": ["stats"],
+    "notes": "47500 = 15000*3 (Salary) + 2500 (Freelance)"
+  },
+  {
+    "id": "q02-total-expense",
+    "csvFile": "main.csv",
+    "question": "总支出是多少？",
+    "expectedNumbers": [17953.50],
+    "expectedTools": ["stats"],
+    "notes": "All EXPENSE rows summed"
+  },
+  {
+    "id": "q03-net-balance",
+    "csvFile": "main.csv",
+    "question": "净结余是多少？",
+    "expectedNumbers": [29546.50],
+    "expectedTools": ["stats"],
+    "notes": "47500 - 17953.50"
+  },
+  {
+    "id": "q04-jan-expense",
+    "csvFile": "main.csv",
+    "question": "一月份的总支出是多少？",
+    "expectedNumbers": [9838.50],
+    "expectedTools": ["trend"],
+    "notes": "3200+450.50+89+299+5800"
+  },
+  {
+    "id": "q05-feb-net",
+    "csvFile": "main.csv",
+    "question": "二月份的净结余是多少？",
+    "expectedNumbers": [10650],
+    "expectedTools": ["trend"],
+    "notes": "15000 - 4350"
+  },
+  {
+    "id": "q06-mar-income",
+    "csvFile": "main.csv",
+    "question": "三月份的总收入是多少？",
+    "expectedNumbers": [17500],
+    "expectedTools": ["trend"],
+    "notes": "15000 (Salary) + 2500 (Freelance)"
+  },
+  {
+    "id": "q07-rent-total",
+    "csvFile": "main.csv",
+    "question": "三个月租金总共花了多少？",
+    "expectedNumbers": [9600],
+    "expectedTools": ["stats"],
+    "notes": "3200*3"
+  },
+  {
+    "id": "q08-food-total",
+    "csvFile": "main.csv",
+    "question": "餐饮类目共花了多少？",
+    "expectedNumbers": [1350.50],
+    "expectedTools": ["stats"],
+    "notes": "450.50+380+520"
+  },
+  {
+    "id": "q09-anomaly",
+    "csvFile": "main.csv",
+    "question": "有没有异常的大额支出？金额是多少？",
+    "expectedNumbers": [5800],
+    "expectedTools": ["anomaly"],
+    "notes": "Winter jacket is the z-score outlier"
+  },
+  {
+    "id": "q10-multi-net-and-anomaly",
+    "csvFile": "main.csv",
+    "question": "净结余是多少？另外，有没有异常的大额支出？",
+    "expectedNumbers": [29546.50, 5800],
+    "expectedTools": ["stats", "anomaly"],
+    "notes": "Should trigger both tools"
+  }
+]

@@ -13,6 +13,7 @@ public class AnalysisResponse {
     private boolean groundTruthValid;
     private double confidence;
     private List<BigDecimal> suspiciousFigures;
+    private List<String> toolsInvoked;
     private String validationMessage;
     private long processingTimeMs;
 }

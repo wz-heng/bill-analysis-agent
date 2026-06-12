@@ -19,6 +19,7 @@ public class StatsTool {
 
     @Tool(description = "Calculate total income, total expense, net balance, and per-category amount breakdown from the current bill data.")
     public StatsResult calculateStats() {
+        context.recordTool("stats");
         List<BillRecord> bills = safeBills();
 
         BigDecimal totalIncome = bills.stream()

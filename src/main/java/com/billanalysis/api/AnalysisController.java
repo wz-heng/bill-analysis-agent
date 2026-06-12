@@ -1,6 +1,7 @@
 package com.billanalysis.api;
 
 import com.billanalysis.agent.BillAnalysisAgent;
+import com.billanalysis.agent.BillSessionContext;
 import com.billanalysis.guardrail.GroundTruthChecker;
 import com.billanalysis.parser.BillRecord;
 import com.billanalysis.parser.CsvBillParser;
@@ -19,6 +20,7 @@ public class AnalysisController {
     private final CsvBillParser csvBillParser;
     private final BillAnalysisAgent billAnalysisAgent;
     private final GroundTruthChecker groundTruthChecker;
+    private final BillSessionContext sessionContext;
 
     /**
      * POST /api/bills/analyze
@@ -38,6 +40,7 @@ public class AnalysisController {
                 .groundTruthValid(validation.valid())
                 .confidence(validation.confidence())
                 .suspiciousFigures(validation.suspicious())
+                .toolsInvoked(List.copyOf(sessionContext.getToolsInvoked()))
                 .validationMessage(validation.message())
                 .processingTimeMs(System.currentTimeMillis() - start)
                 .build());

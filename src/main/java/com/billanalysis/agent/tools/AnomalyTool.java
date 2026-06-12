@@ -23,6 +23,7 @@ public class AnomalyTool {
 
     @Tool(description = "Detect anomalous large transactions using Z-score analysis over all bill amounts. Returns transactions that deviate significantly from the mean.")
     public List<AnomalyRecord> detectAnomalies() {
+        context.recordTool("anomaly");
         List<BillRecord> expenses = (context.getBills() == null ? List.<BillRecord>of() : context.getBills()).stream()
                 .filter(b -> "EXPENSE".equals(b.getType()))
                 .toList();

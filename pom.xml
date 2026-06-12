@@ -83,6 +83,15 @@
                     </excludes>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <!-- Skip @Tag("eval") tests by default (they hit the live LLM API).
+                         Run them explicitly with: mvn test -Dgroups=eval -->
+                    <excludedGroups>eval</excludedGroups>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>

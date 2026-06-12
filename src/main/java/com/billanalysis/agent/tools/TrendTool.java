@@ -21,6 +21,7 @@ public class TrendTool {
 
     @Tool(description = "Analyze month-by-month income and expense trends. Returns each month's income, expense, and net balance sorted chronologically.")
     public Map<String, MonthlyTrend> analyzeMonthlyTrend() {
+        context.recordTool("trend");
         List<BillRecord> bills = context.getBills() == null ? List.of() : context.getBills();
 
         Map<YearMonth, List<BillRecord>> byMonth = bills.stream()

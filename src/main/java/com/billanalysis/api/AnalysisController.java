@@ -1,7 +1,6 @@
 package com.billanalysis.api;
 
 import com.billanalysis.agent.BillAnalysisAgent;
-import com.billanalysis.agent.tools.StatsTool;
 import com.billanalysis.guardrail.GroundTruthChecker;
 import com.billanalysis.parser.BillRecord;
 import com.billanalysis.parser.CsvBillParser;
@@ -19,7 +18,6 @@ public class AnalysisController {
 
     private final CsvBillParser csvBillParser;
     private final BillAnalysisAgent billAnalysisAgent;
-    private final StatsTool statsTool;
     private final GroundTruthChecker groundTruthChecker;
 
     /**
@@ -31,19 +29,15 @@ public class AnalysisController {
         long start = System.currentTimeMillis();
         validateRequest(request);
 
-        // 1. Parse CSV
         List<BillRecord> bills = csvBillParser.parse(new StringReader(request.getCsvContent()));
-
-        // 2. Run agent (sets BillSessionContext internally)
         String answer = billAnalysisAgent.analyze(request.getQuestion(), bills);
-
-        // 3. Ground-truth guardrail — compare AI figures against deterministic calculation
-        StatsTool.StatsResult groundTruth = statsTool.calculateStats();
-        GroundTruthChecker.ValidationResult validation = groundTruthChecker.validate(answer, groundTruth);
+        GroundTruthChecker.ValidationResult validation = groundTruthChecker.validate(answer);
 
         return ResponseEntity.ok(AnalysisResponse.builder()
                 .answer(answer)
                 .groundTruthValid(validation.valid())
+                .confidence(validation.confidence())
+                .suspiciousFigures(validation.suspicious())
                 .validationMessage(validation.message())
                 .processingTimeMs(System.currentTimeMillis() - start)
                 .build());
